@@ -1,0 +1,24 @@
+.viewport {
+    overflow: hidden;
+    width: 900px;
+    margin: 0 auto;
+}
+
+.viewport .contents {
+    display: flex;
+    position: relative;
+    transition: transform 1s;
+}
+
+.viewport .carousel {
+    width: 300px;
+}
+
+.viewport .carousel img {
+    width: 300px;
+}
+
+.control {
+    margin: 0 auto;
+    text-align: center
+}
