@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import './index.css'
 
 const contents = document.querySelector('.contents');
@@ -46,7 +47,12 @@ for (let i = 0; i < 5; i++) {
 
 //api function
 async function getUserDetail() {
-    return fetch('https://randomuser.me/api/', { mode: 'cors' }).then(r => r.json())
+    let user = await fetch('https://randomuser.me/api/', { mode: 'cors' }).then(r => r.json())
+    return user.results[0]
+    //     onst result = await fetch('https://randomuser.me/api/', { mode: 'cors' })
+    //     const user = await result.json()
+    //     return user.results[0]
+    // }
 }
 
 
@@ -77,8 +83,7 @@ rightButton.addEventListener('click', () => handleClick(1));
 
 // console.log("aaa", items)
 items.forEach(async item => {
-    console.log('hr', await getUserDetail())
-    const user = (await getUserDetail()).results[0];
+    const user = await getUserDetail();
     const imageSrc = user.picture.large;
     const name = user.name.first;
     const family = user.name.last;
